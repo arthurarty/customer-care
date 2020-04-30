@@ -5,8 +5,8 @@ from dotenv import load_dotenv
 load_dotenv()
 
 app = Flask(__name__)
-app.config['MAIL_SERVER']='smtp.sendgrid.net'
-app.config['MAIL_PORT'] = 2525
+app.config['MAIL_SERVER']= os.getenv('EMAIL_SERVER')
+app.config['MAIL_PORT'] = os.getenv('EMAIL_PORT')
 app.config['MAIL_USERNAME'] = os.getenv('EMAIL_USERNAME')
 app.config['MAIL_PASSWORD'] = os.getenv('EMAIL_PASSWORD')
 app.config['MAIL_USE_TLS'] = True
