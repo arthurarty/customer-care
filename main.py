@@ -1,7 +1,9 @@
+import os
+
+from dotenv import load_dotenv
 from flask import Flask, render_template, request
 from flask_mail import Mail, Message
-import os
-from dotenv import load_dotenv
+
 load_dotenv()
 
 app = Flask(__name__)
@@ -12,18 +14,6 @@ app.config['MAIL_PASSWORD'] = os.getenv('EMAIL_PASSWORD')
 app.config['MAIL_USE_TLS'] = True
 app.config['MAIL_USE_SSL'] = False
 mail = Mail(app)
-
-# MAIL_SERVER : default ‘localhost’
-# MAIL_PORT : default 25
-# MAIL_USE_TLS : default False
-# MAIL_USE_SSL : default False
-# MAIL_DEBUG : default app.debug
-# MAIL_USERNAME : default None
-# MAIL_PASSWORD : default None
-# MAIL_DEFAULT_SENDER : default None
-# MAIL_MAX_EMAILS : default None
-# MAIL_SUPPRESS_SEND : default app.testing
-# MAIL_ASCII_ATTACHMENTS : default False
 
 @app.route('/')
 def index():
